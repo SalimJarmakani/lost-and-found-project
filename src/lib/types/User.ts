@@ -23,7 +23,7 @@ const UserSchema: Schema = new Schema(
   }
 );
 
-var UserModel;
+let UserModel;
 
 if (!mongoose.models.User) {
   UserModel = mongoose.model<User>("User", UserSchema);

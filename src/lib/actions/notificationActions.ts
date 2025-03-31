@@ -16,7 +16,7 @@ interface CreateReportNotificationData {
 
 interface CreateReportNotificationResponse {
   success: boolean;
-  reportNotification?: any;
+  reportNotification?: ReportNotification;
   error?: string;
 }
 
@@ -37,9 +37,9 @@ export async function createReportNotification(
 
     await newReportNotification.save();
     return { success: true };
-  } catch (error: any) {
+  } catch (error) {
     console.error("Error creating report notification:", error);
-    return { success: false, error: error.message };
+    return { success: false, error: "Error" };
   }
 }
 

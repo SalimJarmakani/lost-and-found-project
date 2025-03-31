@@ -23,9 +23,9 @@ export async function createItem(data: Item) {
 
     const savedItem = await newItem.save();
     return { success: true, item: savedItem };
-  } catch (error: any) {
+  } catch (error) {
     console.error("Error creating item:", error);
-    return { success: false, error: error.message };
+    return { success: false, error: "error" };
   }
 }
 
@@ -34,9 +34,9 @@ export async function getItems() {
     await connectDB();
     const items = await ItemModel.find({});
     return { success: true, items };
-  } catch (error: any) {
+  } catch (error) {
     console.error("Error getting items:", error);
-    return { success: false, error: error.message };
+    return { success: false, error: "error" };
   }
 }
 
@@ -47,7 +47,7 @@ export async function getSearchItems() {
 
     const items = JSON.parse(JSON.stringify(itemModels));
     return items;
-  } catch (error: any) {
+  } catch (error) {
     console.error("Error getting items:", error);
     return [];
   }
@@ -58,7 +58,7 @@ export async function getItemById(id: string): Promise<Item> {
     await connectDB();
     const item = await ItemModel.findById(id);
     return item;
-  } catch (error: any) {
+  } catch (error) {
     console.error("Error getting items:", error);
     return new ItemModel();
   }

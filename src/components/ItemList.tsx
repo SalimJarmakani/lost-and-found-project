@@ -1,4 +1,5 @@
 import { Item } from "@/lib/types/Item"; // Update with your correct file path
+import Image from "next/image";
 
 interface ItemsListProps {
   items: Item[];
@@ -12,8 +13,8 @@ const ItemsList = ({ items }: ItemsListProps) => {
           key={item._id.toString()}
           className="border p-4 rounded-md shadow-md"
         >
-          <img
-            src={item.imageUrl}
+          <Image
+            src={item.imageUrl!}
             alt={item.title}
             className="w-full h-48 object-cover rounded-md mb-4"
           />

@@ -2,7 +2,7 @@ import mongoose from "mongoose";
 import { Item } from "@/lib/types/Item";
 export const staticItems: Item[] = [
   {
-    id: "1",
+    _id: "1",
     title: "Lost Phone",
     description: "Black iPhone 12 lost near the park.",
     category: "Electronics",
@@ -12,7 +12,7 @@ export const staticItems: Item[] = [
     imageUrl: "/images/Iphone.webp",
   },
   {
-    id: "2",
+    _id: "2",
     title: "Wallet Found",
     description: "Brown leather wallet found at the mall.",
     category: "Accessories",

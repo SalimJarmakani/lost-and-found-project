@@ -3,6 +3,7 @@ import { getNotificationById } from "@/lib/actions/notificationActions";
 import { Item } from "@/lib/types/Item";
 import { ReportNotification } from "@/lib/types/Notification";
 import { Button } from "@/components/ui/button";
+import Image from "next/image";
 import {
   Select,
   SelectContent,
@@ -26,10 +27,10 @@ export default async function Page({
     notificationId
   );
 
-  async function handleStatusChange(newStatus: string) {
-    // await updateItemStatus(itemId, newStatus);
-    // Optionally, trigger a revalidation or refresh action
-  }
+  // async function handleStatusChange(newStatus: string) {
+  //   // await updateItemStatus(itemId, newStatus);
+  //   // Optionally, trigger a revalidation or refresh action
+  // }
 
   return (
     <div className="flex flex-col justify-center items-center min-h-screen gap-6">
@@ -59,7 +60,7 @@ export default async function Page({
             Location: {item.locationLostFound}
           </p>
           {item.imageUrl && (
-            <img
+            <Image
               src={item.imageUrl}
               alt={item.title}
               className="mt-2 w-full h-40 object-cover rounded-lg"

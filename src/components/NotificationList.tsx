@@ -4,7 +4,6 @@ import { getNotifications } from "@/lib/actions/notificationActions";
 import { cookies } from "next/headers";
 import { decrypt } from "@/lib/session";
 import { ReportNotification } from "@/lib/types/Notification";
-import { Button } from "@/components/ui/button";
 import Link from "next/link";
 
 const NotificationList = async () => {

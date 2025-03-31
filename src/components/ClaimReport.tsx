@@ -22,9 +22,11 @@ export default function ClaimReportPage({ id, email }: UserInfo) {
   const [description, setDescription] = useState("");
   const [message, setMessage] = useState("");
   const [userInfo, setUserInfo] = useState<UserInfo>({
-    id: id,
-    email: email,
+    id: "",
+    email: "",
   });
+
+  setUserInfo({ id: id, email: email });
 
   useEffect(() => {
     if (type === "found") {
