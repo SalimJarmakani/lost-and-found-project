@@ -7,13 +7,16 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Card, CardContent } from "@/components/ui/card";
 import { createReportNotification } from "@/lib/actions/notificationActions";
+import { useToast } from "@/components/ui/use-toast";
 
 interface UserInfo {
   id: string;
   email: string;
+  name: string;
 }
 
-export default function ClaimReportPage({ id, email }: UserInfo) {
+export default function ClaimReportPage({ id, email, name }: UserInfo) {
+  const { toast } = useToast();
   const searchParams = useSearchParams();
   const type = searchParams.get("type");
   const itemId = searchParams.get("itemId") as string;
@@ -24,11 +27,11 @@ export default function ClaimReportPage({ id, email }: UserInfo) {
   const [userInfo, setUserInfo] = useState<UserInfo>({
     id: "",
     email: "",
+    name: "",
   });
 
-  setUserInfo({ id: id, email: email });
-
   useEffect(() => {
+    setUserInfo({ id: id, email: email, name });
     if (type === "found") {
       setTitle("Claim an Item");
       setDescription(
@@ -63,9 +66,15 @@ export default function ClaimReportPage({ id, email }: UserInfo) {
     });
 
     if (response.success) {
-      alert("Request submitted successfully!");
+      toast({
+        title: "Report Has been Submitted",
+        description: "The User who posted the item will be notified",
+      });
     } else {
-      console.error("Error submitting request:", response.error);
+      toast({
+        title: "Unable to Sumbit Report",
+        description: "Please Try Again Later",
+      });
     }
   };
 
@@ -87,9 +96,10 @@ export default function ClaimReportPage({ id, email }: UserInfo) {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <Input
                 type="text"
-                value={userInfo.email}
+                value={userInfo.name}
                 placeholder="Your Name"
                 readOnly
+                disabled
                 className="bg-zinc-800 border-zinc-700 text-white"
               />
               <Input
@@ -97,6 +107,7 @@ export default function ClaimReportPage({ id, email }: UserInfo) {
                 value={userInfo.email}
                 placeholder="Your Email"
                 readOnly
+                disabled
                 className="bg-zinc-800 border-zinc-700 text-white"
               />
             </div>

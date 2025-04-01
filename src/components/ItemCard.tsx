@@ -41,7 +41,7 @@ const ItemCard = ({ item }: ItemCardProps) => {
   const { label, color, type } = getButtonProperties();
 
   return (
-    <div className="relative border p-4 rounded-lg shadow-md w-full max-w-md mx-auto h-80 flex flex-col items-center">
+    <div className="relative border p-4 rounded-lg shadow-md w-full max-w-md mx-auto flex flex-col items-center justify-between">
       {/* Avatar in Top Left Corner */}
       <div className="absolute top-2 left-2 flex items-center space-x-2">
         <Avatar>
@@ -59,13 +59,15 @@ const ItemCard = ({ item }: ItemCardProps) => {
       </Link>
 
       {item.imageUrl && (
-        <Image
-          src={item.imageUrl}
-          alt={item.title}
-          width={200}
-          height={200}
-          className="rounded-md"
-        />
+        <div className="mt-10 w-full h-40 flex items-center justify-center rounded-md overflow-hidden">
+          <Image
+            src={item.imageUrl}
+            alt={item.title}
+            width={200}
+            height={200}
+            className="rounded-md object-contain max-h-full max-w-full"
+          />
+        </div>
       )}
       <h2 className="text-lg font-semibold mt-2">{item.title}</h2>
       <p className="text-sm text-gray-600">{item.category}</p>

@@ -6,7 +6,40 @@ export type ItemCategory =
   | "Clothing"
   | "Documents"
   | "Accessories"
-  | "Miscellaneous";
+  | "Miscellaneous"
+  | "Pets"
+  | "Keys"
+  | "Wallets"
+  | "Jewelry"
+  | "Bags"
+  | "Books"
+  | "Sporting Goods"
+  | "Toys"
+  | "Medical Items"
+  | "Musical Instruments"
+  | "Vehicles"
+  | "ID Cards"
+  | "Tickets"
+  | "Glasses"
+  | "Footwear"
+  | "Tools"
+  | "Kitchenware"
+  | "Baby Items"
+  | "Umbrellas"
+  | "Luggage"
+  | "Art Supplies"
+  | "Camping Gear"
+  | "School Supplies"
+  | "Cameras"
+  | "Chargers"
+  | "Headphones"
+  | "Hats"
+  | "Scarves"
+  | "Makeup"
+  | "Notebooks"
+  | "Gaming Devices"
+  | "Collectibles"
+  | "Other";
 
 export interface Item {
   _id: string; // UUID or auto-generated ID
@@ -38,6 +71,39 @@ const ItemSchema: Schema = new Schema<Item>(
         "Documents",
         "Accessories",
         "Miscellaneous",
+        "Pets",
+        "Keys",
+        "Wallets",
+        "Jewelry",
+        "Bags",
+        "Books",
+        "Sporting Goods",
+        "Toys",
+        "Medical Items",
+        "Musical Instruments",
+        "Vehicles",
+        "ID Cards",
+        "Tickets",
+        "Glasses",
+        "Footwear",
+        "Tools",
+        "Kitchenware",
+        "Baby Items",
+        "Umbrellas",
+        "Luggage",
+        "Art Supplies",
+        "Camping Gear",
+        "School Supplies",
+        "Cameras",
+        "Chargers",
+        "Headphones",
+        "Hats",
+        "Scarves",
+        "Makeup",
+        "Notebooks",
+        "Gaming Devices",
+        "Collectibles",
+        "Other",
       ],
     },
     status: {

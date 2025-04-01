@@ -1,10 +1,10 @@
 "use server";
 
 import connectDB from "@/lib/db";
-import UserModel from "@/lib/types/User";
+import UserModel, { User } from "@/lib/types/User";
 import { z } from "zod";
 import bcrypt from "bcryptjs";
-import { createSession } from "@/lib/session";
+import { createSession, deleteSession } from "@/lib/session";
 import { redirect } from "next/navigation";
 
 await connectDB();
@@ -59,4 +59,15 @@ export async function registerAction(data: {
   await createSession(newUser._id.toString(), newUser.email);
 
   redirect("/");
+}
+
+export async function getUserByEmail(email: string): Promise<User> {
+  const user = await UserModel.findOne({ email: email });
+
+  return user;
+}
+
+export async function signout() {
+  await deleteSession();
+  redirect("/login");
 }

@@ -11,7 +11,6 @@ export default function SearchPage() {
   useEffect(() => {
     const fetchItems = async () => {
       const items = await getSearchItems(); // Calling the server action
-      console.log(items);
       setItems(items);
       setFilteredItems(items);
     };

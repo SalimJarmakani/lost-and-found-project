@@ -6,16 +6,20 @@ This project is a Lost and Found application designed to help users report lost 
 
 ## Current Progress
 
-Login & Authentication: Implemented using sessions for user management. Middleware for additional security and access control is in progress.
+- **Login & Authentication**: Implemented using sessions for user management. Middleware for additional security and access control is in progress.
+- **Claim/Report Page**: Developed and functional, pending database integration.
+- **General Workflow**: Currently being refined to ensure a smooth and intuitive user experience.
 
-Claim/Report Page: Developed and functional, pending database integration.
+## Team Contributions
 
-General Workflow: Currently being refined to ensure a smooth and intuitive user experience.
+- **Uriel**: Worked on search and filtering.
+- **Salim**: Worked on notifications, bug fixing, server actions.
+- **Siddharth**: Adding items and forms.
+- **Vladimir**: Authentication and middleware.
 
-## Next Steps
+## Running Folder Locally
 
-Complete middleware implementation for enhanced security and access management.
+Make sure to have a `.env` file with the following:
 
-Connect the Claim/Report page to the database for storing and retrieving records.
-
-Finalize the overall workflow to improve usability and efficiency.
+- `DATABASE_URL` (Mongoose connection string)
+- `SESSION_SECRET` (Any key to use for encryption)

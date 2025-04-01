@@ -63,3 +63,20 @@ export async function getItemById(id: string): Promise<Item> {
     return new ItemModel();
   }
 }
+
+export async function updateStatus(
+  id: string,
+  status: string
+): Promise<boolean> {
+  try {
+    const update = await ItemModel.findByIdAndUpdate(
+      id,
+      { status: status },
+      { new: true }
+    );
+    return !!update; // Returns true if update is successful, false otherwise
+  } catch (error) {
+    console.error("Error updating status:", error);
+    return false;
+  }
+}
